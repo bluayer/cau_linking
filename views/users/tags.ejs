@@ -1,0 +1,11 @@
+<script src="/js/tag-it.min.js" type="text/javascript" charset="utf-8"></script>
+<link href="/css/jquery.tagit.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#myTags").tagit();
+    });
+</script>
+
+<ul id="myTags">
+    <li id="myTags"><%= user.tags %></li>
+</ul>

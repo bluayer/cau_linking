@@ -31,6 +31,10 @@ var userSchema = mongoose.Schema({
     type:Number,
     required:[true,"Your Student ID is required!"],
     match:[/^.{6}$/, "Should be a vaild number address!"],
+  },
+  tags:{
+    type:[String],
+    trim:true
   }
 },{
   toObject:{virtuals:true}
