@@ -1,0 +1,20 @@
+<script src="/js/tag-it.min.js" type="text/javascript" charset="utf-8"></script>
+<link href="/css/jquery.tagit.css" rel="stylesheet" type="text/css">
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#readOnlyTags').tagit({
+            readOnly:true,
+            singleField: true,
+            singleFieldNode: $('#mySingleField')
+        });
+    });
+    $(document).ready(function() {
+        $('#tags').tagit({
+            singleField: true,
+            singleFieldNode: $('#mySingleField')
+        });
+    });
+
+</script>
