@@ -13,66 +13,70 @@
 
         <div class="buttons">
           <% if(isAuthenticated){ %>
-            <a class="btn btn-default" href="/posts/new">New</a>
+            <a class="btn-floating btn-large cyan pulse" href="/posts/new"><i class="material-icons">edit</i></a>
             <% } %>
         </div>
 
-        <table class="table table-striped posts">
-          <thead>
-            <tr>
-              <th class="title">Title</th>
-              <th class="author">Author</th>
-              <th class="date">Date</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% if(posts == null || posts.length == 0){ %>
-              <tr>
-                <td class="noData" colspan=100> There is no data to show :( </td>
-              </tr>
-              <% } %>
-                <% posts.forEach(function(post) { %>
-                  <tr>
-                    <td class="title">
+        <% if(posts == null || posts.length == 0){ %>
+          <tr>
+            <td class="noData" colspan=100> There is no data to show :( </td>
+          </tr>
+          <% } %>
+            <div class="row ">
+              <% posts.forEach(function(post) { %>
+                <div class="col s12 m6">
+                  <div class="card white">
+                    <div class="card-content">
+                      <span class="card-title"><a href="/posts/<%= post._id %>"><%= post.title %></a></span>
+                      <p>
+                        <%= post.body %>
+                      </p>
+                    </div>
+                    <div class="card-action">
                       <a href="/posts/<%= post._id %>">
-                        <div class="ellipsis">
-                          <%= post.title %>
-                        </div>
-                      </a>
-                    </td>
-                    <td class="author">
-                      <div class="ellipsis">
                         <%= post.author ? post.author.username : "" %>
-                      </div>
-                    </td>
-                    <td class="date">
-                      <%= post.createdDate %>
-                    </td>
-                  </tr>
-                  <% }) %>
-          </tbody>
-        </table>
-        <div class="search">
-          <form action="/posts/search" method="get" id="searchAction" name="searchAction">
-            <select name="searchCategory" form="searchCategory">
-              <option value="author">작성자</option>
-              <option value="titleBody">제목+내용</option>
-            </select>
-            <input type="text" class="search_word" id="searchWord" name="searchWord">
-            <button type="button" onclick="searchContent();">검색</button>
-          </form>
-        </div>
+                      </a>
+                      <a>
+                        <%= post.createdDate %>
+                      </a>
+                    </div>
+                  </div>
+                </div>
 
-        <script>
-          function searchContent() {
-            if ($('#searchWord').val == '') {
-              alert("검색어를 입력해주세요!!!");
-            } else {
-              $('#searchAction').submit();
-            }
-          }
-        </script>
+                <% }) %>
+            </div>
+            <div class="search">
+              <form action="/posts/search" method="get" id="searchAction" name="searchAction">
+                <select name="searchCategory" form="searchCategory">
+                  <option value="author">작성자</option>
+                  <option value="titleBody">제목+내용</option>
+                </select>
+                <input type="text" class="search_word" id="searchWord" name="searchWord">
+                <button type="button" onclick="searchContent();">검색</button>
+              </form>
+            </div>
+            
+            <script type="text/javascript">
+              $(document).ready(function() {
+                $("#myTags").tagit();
+              });
+            </script>
 
+            <ul id="myTags">
+              <!-- Existing list items will be pre-added to the tags -->
+              <li>Tag1</li>
+              <li>Tag2</li>
+            </ul>
+
+            <script>
+              function searchContent() {
+                if ($('#searchWord').val == '') {
+                  alert("검색어를 입력해주세요!!!");
+                } else {
+                  $('#searchAction').submit();
+                }
+              }
+            </script>
 
     </div>
     <!-- container end -->

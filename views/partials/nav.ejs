@@ -1,28 +1,20 @@
-<nav class="navbar navbar-default">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <div class="navbar-brand">My Website</div>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li><a href="/">Home</a></li>
-        <li><a href="/users">Users</a></li>
+<link rel="stylesheet" href="/css/nav.css" type="text/css">
+
+<div class="navbar-fixed">
+  <nav>
+    <div class="nav-wrapper">
+      <a class="brand-logo" href="/">CAU-Linked IN</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down menu">
+        <li><a href="/users">흑우들</a></li>
         <li><a href="/posts">게시판</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
         <% if(isAuthenticated){ %>
           <li><a href="/users/<%= currentUser.username %>">My Account</a></li>
           <li><a href="/logout">Logout</a></li>
-        <% } else { %>
-          <li><a href="/users/new">Sign Up</a></li>
-          <li><a href="/login">Login</a></li>
-        <% } %>
+          <% } else { %>
+            <li><a href="/users/new">Sign Up</a></li>
+            <li><a href="/login">Login</a></li>
+            <% } %>
       </ul>
     </div>
-  </div>
-</nav>
+  </nav>
+</div>
