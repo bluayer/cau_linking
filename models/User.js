@@ -33,8 +33,7 @@ var userSchema = mongoose.Schema({
     match:[/^.{6}$/, "Should be a vaild number address!"],
   },
   tags:{
-    type:[String],
-    trim:true
+    type:String,
   }
 },{
   toObject:{virtuals:true}

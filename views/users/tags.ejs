@@ -1,11 +1,20 @@
 <script src="/js/tag-it.min.js" type="text/javascript" charset="utf-8"></script>
 <link href="/css/jquery.tagit.css" rel="stylesheet" type="text/css">
+
+
 <script type="text/javascript">
     $(document).ready(function() {
-        $("#myTags").tagit();
+        $('#readOnlyTags').tagit({
+            readOnly:true,
+            singleField: true,
+            singleFieldNode: $('#mySingleField')
+        });
     });
-</script>
+    $(document).ready(function() {
+        $('#tags').tagit({
+            singleField: true,
+            singleFieldNode: $('#mySingleField')
+        });
+    });
 
-<ul id="myTags">
-    <li id="myTags"><%= user.tags %></li>
-</ul>
+</script>
