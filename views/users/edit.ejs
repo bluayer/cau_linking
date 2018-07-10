@@ -54,10 +54,10 @@
                 <% } %>
               </div>
             </div>
-            <div class="form-group <%= (errors.tags)?'has-error':'' %>">
+            <div class="<%= (errors.tags)?'has-error':'' %>">
               <label for="Sid" class="col-sm-3 control-label">Tags</label>
               <div class="col-sm-9">
-                <input class="form-control" type="text" id="tags" name="tags" value="<%= user.tags %>">
+                <input type="text" id="tags" name="tags" value="<%= user.tags %>">
                 <% if(errors.tags){ %>
                 <span class="help-block"><%= errors.tags.message %></span>
                 <% } %>

@@ -47,26 +47,20 @@
             </div>
             <div class="search">
               <form action="/posts/search" method="get" id="searchAction" name="searchAction">
-                <select name="searchCategory" form="searchCategory">
-                  <option value="author">작성자</option>
-                  <option value="titleBody">제목+내용</option>
-                </select>
+
+                <div class="input-field">
+                  <select name="searchCategory" form="searchCategory">
+                    <option value="" disabled selected>Choose your option</option>
+                    <option value="author">작성자</option>
+                    <option value="titleBody">제목+내용</option>
+                  </select>
+                  <label>Materialize Select</label>
+                </div>
+
                 <input type="text" class="search_word" id="searchWord" name="searchWord">
                 <button type="button" onclick="searchContent();">검색</button>
               </form>
             </div>
-            
-            <script type="text/javascript">
-              $(document).ready(function() {
-                $("#myTags").tagit();
-              });
-            </script>
-
-            <ul id="myTags">
-              <!-- Existing list items will be pre-added to the tags -->
-              <li>Tag1</li>
-              <li>Tag2</li>
-            </ul>
 
             <script>
               function searchContent() {
@@ -76,6 +70,12 @@
                   $('#searchAction').submit();
                 }
               }
+            </script>
+
+            <script>
+              $(document).ready(function() {
+                $('select').formSelect();
+              });
             </script>
 
     </div>
