@@ -12,6 +12,8 @@ ul.tagit li {
 ul.tagit li.tagit-choice {    
     position: relative;
     line-height: inherit;
+    background: #4db6ac;
+    color: #ffffff;
 }
 input.tagit-hidden-field {
     display: none;

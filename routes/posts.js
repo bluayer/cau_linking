@@ -19,14 +19,16 @@ router.get("/", function(req, res){
 // search
 
 router.get('/search', function(req, res){
-    var search_word = req.param('searchWord');
-    var search_category = req.param('searchCategory');
+    var search_word = req.query.searchWord;
+    console.log(req);
+    var search_category = req.query.searchCategory;
     var searchCondition = {$regex:search_word};
-
-
+    console.log(search_category);
+    console.log(search_word);
     if(search_category == "author") {
       User.find({username:searchCondition}).exec(function(err, user){
         if(err) throw err;
+        console.log(user);
         Post.find({author:user}).populate("author").sort("-createdAt").exec(function(err, posts){
             if(err) throw err;
             console.log(posts);

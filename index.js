@@ -8,7 +8,8 @@ var passport       = require("./config/passport");
 var app = express();
 
 // DB setting
-var promise = mongoose.connect(process.env.MONGO_DB, {useMongoClient: true});
+mongoose.Promise = global.Promise;
+mongoose.connect(process.env.MONGO_DB, {useMongoClient: true});
 var db = mongoose.connection;
 db.once("open", function(){
   console.log("DB connected");

@@ -47,14 +47,13 @@
             </div>
             <div class="search">
               <form action="/posts/search" method="get" id="searchAction" name="searchAction">
-
                 <div class="input-field">
-                  <select name="searchCategory" form="searchCategory">
+                  <select name="searchCategory" form="searchAction">
                     <option value="" disabled selected>Choose your option</option>
                     <option value="author">작성자</option>
                     <option value="titleBody">제목+내용</option>
                   </select>
-                  <label>Materialize Select</label>
+                  <label>검색</label>
                 </div>
 
                 <input type="text" class="search_word" id="searchWord" name="searchWord">
