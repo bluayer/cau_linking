@@ -5,6 +5,8 @@ var methodOverride = require("method-override");
 var flash          = require("connect-flash");
 var session        = require("express-session");
 var passport       = require("./config/passport");
+const helmet       = require('helmet');
+
 var app = express();
 
 // DB setting
@@ -30,6 +32,10 @@ app.use(session({secret:"MySecret", resave: true, saveUninitialized: true}));
 // Passport
 app.use(passport.initialize());
 app.use(passport.session());
+
+// Helmet
+app.use(helmet());
+app.disable('x-powered-by');
 
 // Custom Middlewares
 app.use(function(req,res,next){
