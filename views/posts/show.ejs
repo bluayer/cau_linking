@@ -10,7 +10,6 @@
   <% include ../partials/nav %>
 
     <div class="container post post-show">
-
       <div class="buttons">
         <a class="btn btn-default" href="/posts">Back</a>
         <% if(isAuthenticated && post.author && currentUser.id == post.author.id){ %>
@@ -22,38 +21,30 @@
       <div class="contentBox">
         <h3 class="contentBoxTop"><%= post.title %></h3>
         <div class="row">
-          <div class="col-sm-4 col-sm-push-8">
-            <div class="post-info">
-              <div><span>Author</span> :
-                <%= post.author ? post.author.username : "" %>
-              </div>
-              <div><span>Created</span> :
-                <%= post.createdDate %>
-                  <%= post.createdTime %>
-              </div>
-              <% if(post.updatedAt) { %>
-                <div><span>Updated</span> :
-                  <%= post.updatedDate %>
-                    <%= post.updatedTime %>
+            <div class="col s12">
+              <div class="card">
+                <div class="card-content">
+                  <span class="card-title"><%= post.author ? post.author.username : "" %> ( <%= post.author.name %>)</span>
+                  <p><%= post.body %></p>
                 </div>
-                <% } %>
+                <div class="card-action">
+                  <a class="white-text"> 
+                    작성 시간 :                
+                    <%= post.createdDate %>
+                    <%= post.createdTime %> 
+                    <br>
+                  </a>
+                  <a class="white-text" href="/users/<%= post.author.username %>">
+                    작성자 컨택 : <%= post.author.name %>
+                  </a>
+                </div>
+              </div>
             </div>
-            <!-- post-info end -->
           </div>
-          <!-- col end-->
-          <div class="col-sm-8 col-sm-pull-4">
-            <div class="post-body">
-              <%= post.body %>
-            </div>
-          </div>
-          <!-- col end-->
         </div>
-        <!-- row end -->
       </div>
-      <!-- post-container end -->
-
     </div>
-    <!-- container end -->
+  </div>
 </body>
 
 </html>

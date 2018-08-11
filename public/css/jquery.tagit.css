@@ -12,7 +12,8 @@ ul.tagit li {
 ul.tagit li.tagit-choice {    
     position: relative;
     line-height: inherit;
-    background: #4db6ac;
+    background-color: #FAACA8;
+    background-image: linear-gradient(19deg, #FAACA8 0%, #DDD6F3 100%);
     color: #ffffff;
 }
 input.tagit-hidden-field {
