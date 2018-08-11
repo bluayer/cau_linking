@@ -20,6 +20,10 @@ db.on("error", function(err){
   console.log("DB ERROR : ", err);
 });
 
+// Helmet
+app.use(helmet());
+app.disable('x-powered-by');
+
 // Other settings
 app.set("view engine", "ejs");
 app.use(express.static(__dirname+"/public"));
@@ -33,9 +37,7 @@ app.use(session({secret:"MySecret", resave: true, saveUninitialized: true}));
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Helmet
-app.use(helmet());
-app.disable('x-powered-by');
+
 
 // Custom Middlewares
 app.use(function(req,res,next){
