@@ -52,6 +52,7 @@ app.use("/posts", require("./routes/posts"));
 app.use("/users", require("./routes/users"));
 
 // Port setting
-app.listen(8000, function(){
-  console.log("server on!");
+var port = process.env.PORT || 8080;
+app.listen(port, function() {
+  console.log('Our app is running on http://localhost:' + port);
 });
