@@ -10,7 +10,6 @@
   <% include ../partials/nav %>
 
     <div class="container user user-index">
-
       <div class="contentBox">
         <h3 class="contentBoxTop">Black CAUs</h3>
         <h5>이 페이지는 흑우 분들에게 컨택할 수 있는 페이지입니다.</h5>
@@ -24,21 +23,18 @@
                     <div class="card white">
                       <div class="card-content">
                         <span class="card-title"><a href="/users/<%= user.username %>"><%= user.username %></a><br />
-              <p><%= Math.floor(user.Sid / 10000) %>학번 흑우입니다.</p>
-              <p><%= user.email %></p>
+                          <p><%= Math.floor(user.Sid / 10000) %>학번 흑우입니다.</p>
+                          <p><%= user.email %></p>
+                      </div>
+                      <div class="card-action">
+                        <input name="tags" class="readOnlyTags" value="<%= user.tags %>">
+                      </div>
+                    </div>
+                  </div>
+                <% }) %>
               </div>
-              <div class="card-action">
-                <div>
-                  <input name="tags" id="readOnlyTags" value="<%= user.tags %>">
-                </div>
-              </div>
-          </div>
-        </div>
-
-          <% }) %>
         </ul>
       </div>
-
     </div> <!-- container end -->
   </body>
 </html>

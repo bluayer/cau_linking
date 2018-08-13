@@ -4,14 +4,21 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        $('#readOnlyTags').tagit({
-            readOnly:true,
-            singleField: true,
-            singleFieldNode: $('#mySingleField')
+        $("input").each(function(i, e) { 
+            try {
+                $(this).tagit({
+                    readOnly: true,
+                    removeConfirmation: true,
+                    singleField: true
+                });
+            } catch(e) {
+                console.log(e);
+            }
         });
     });
     $(document).ready(function() {
         $('#tags').tagit({
+            removeConfirmation: true,
             singleField: true,
             singleFieldNode: $('#mySingleField')
         });
