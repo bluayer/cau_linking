@@ -16,6 +16,7 @@
       <form class="user-form form-horizontal" action="/users/<%= username %>?_method=put" method="post">
         <div class="contentBox">
           <h3 class="contentBoxTop">Edit User</h3>
+          <h6>* 자신의 정보를 수정하고 싶으시면 꼭 Current Password를 넣으셔야 합니다!</h5> 
           <fieldset>
             <div class="form-group <%= (errors.currentPassword)?'has-error':'' %>">
               <label for="currentPassword" class="col-sm-12 control-label">Current Password*</label>
