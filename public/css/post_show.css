@@ -4,7 +4,11 @@
     color: yellow;
 }
 
-
 .card-title {
     color: black;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
 }
