@@ -13,12 +13,13 @@ var userSchema = mongoose.Schema({
   password:{
     type:String,
     required:[true,"Password is required!"],
+    match:[/^[a-zA-Z0-9]{10,15}$/,"Should be 4-12 characters!"],
     select:false
   },
   name:{
     type:String,
     required:[true,"Name is required!"],
-    match:[/^.{3,5}$/,"Should be 4-12 characters!"],
+    match:[/^.{3,5}$/,"Should be 3-5 characters!"],
     trim:true
   },
   email:{
